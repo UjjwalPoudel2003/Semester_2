@@ -57,5 +57,3 @@ select city, count(emp_id) from emp group by city;
 select city, MAx(salary) from emp group by city having MAx(salary)>100000;
 
 select city, Min(salary) from emp group by city;
-
-

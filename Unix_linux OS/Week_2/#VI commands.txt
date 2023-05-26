@@ -1,0 +1,13 @@
+#VI commands
+$vi filename.txt (to create the file)
+esc + L (to move right)
+esc + h (to move left)
+esc + k (move top)
+esc + j (move bottom)
+esc + : + w + q (save and quit)
+esc + i (to insert)
+esc + <no of rows of lines from vursor position> + yy (to yank - copy)
+esc + p (to yank - paste)
+esc + a (to append)
+esc + x (single letter)
+esc + dd (line deletion)

@@ -1,0 +1,24 @@
+#linux commands
+1. mkdir (make a new directory)
+2. rmdir (removes an empty directory)
+3. cd <directory name> (advances through directory)
+4. cd.. (goes back to previous directory)
+5. cd/ (goes back to home directory)
+6. ls (lists all the directory)
+7. cat > <file name.ext> (creates a writeable file with name)
+8. touch <file name.ext> (creates unwriteable file with file name)
+9. pwd (present working directory)
+10. cp <source dir> <destination dir> (copies the source the file to destination dir)
+11. mv <source dir> <destination dir> (Moves the source the file to destination dir)
+12. head <filename> (displays the first 10 lines of the file)
+13. tail <file name> (displays the last 10 lines of the file)
+14. grep (to search for a particular letter or word in a file)
+15. ping (to check the connectivity of the server)
+16. CMP (to compare the files)
+17. diff (to comapre the files)
+18. vi <file name> (creates a new file)
+19. 
+
+#Special characters
+* denotes all
+? denotes only single
