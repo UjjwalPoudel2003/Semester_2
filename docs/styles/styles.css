@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #1B81BA;
+}
+
+/* Header Starts */
+.title h1 {
+    font-size: 124px;
+    font-weight: 800;
+    margin: 8px 0px -32px 0px;
+}
+
+.title h2 {
+    font-size: 41.56px;
+    font-weight: 600;
+    margin: 0px 0px 24px 0px;
+}
+/* Header Ends */
+
+/* Main Starts */
+.main{
+    display: inline-block;
+    padding: 32px;
+    border: solid 9px #1B81BA;
+    border-radius: 16px;
+    margin: 16px 0px 64px 0px;
+}
+
+.main__input {
+    font-size: 32px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.input__line {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0px;
+}
+
+.line-number {
+    padding: 0px 24px 0px 0px;
+}
+.line-value {
+    text-align: right;
+    border: solid 5px #1B81BA;
+    border-radius: 8px;
+    padding: 9px;
+    display: inline-block;
+    width: 28px;
+    color: #1B81BA;
+    font-size: 24px;
+}
+
+.input__submit {
+    text-align: center;
+}
+
+.submit-button {
+    border: solid 5px #1B81BA;
+    background-color: #1B81BA;
+    border-radius: 8px;
+    padding: 9px;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+/* Main Ends */
+
+/* Table Starts */
+.table__container {
+    display: inline-block;
+    max-height: 600px;
+    max-width: 600px;
+    border: solid 4px #1B81BA;
+    border-radius: 8px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table {
+    font-size: 40px;
+    padding: 8px;
+    table-layout: fixed;
+    overflow: auto;
+}
+
+th, td{
+    min-width: 60px;
+    min-height: 60px;
+    border: solid 4px #1B81BA;
+    border-radius: 8px;
+    table-layout: fixed;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 4px;
+}
+
+td:hover{
+    background-color: #1B81BA;
+    color: #FFFFFF;
+}
+/* Table Ends */
+
+/* Footer Starts */
+.footer__socials {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.socials__social h6 {
+    margin: 40px 0px 0px 0px;
+    font-size: 16px;
+    padding: 0px 24px;
+    color: #1B81BA;
+}
+
+.socials__social a {
+    text-decoration: none;
+}
+
+.footer__copyright h6 {
+    margin: 0px;
+    font-size: 14px;
+}
+/* Footer Starts */
