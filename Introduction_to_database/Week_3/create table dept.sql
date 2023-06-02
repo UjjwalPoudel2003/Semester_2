@@ -39,4 +39,7 @@ select * from dept where nmae like '_za%';
 select dnumber as "Department Number" from dept;
 --|| will concatinate the column
 select dnumber || ', ' || dname "Department Details" from dept;
+
+--New class
+select * from dept;
 commit;
