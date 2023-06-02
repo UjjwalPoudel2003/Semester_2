@@ -22,3 +22,7 @@
 #Special characters
 * denotes all
 ? denotes only single
+
+sudo apt install vim (to install vim)
+ip a (to show the ip details)
+sudo kill <number> (to kill the program)
