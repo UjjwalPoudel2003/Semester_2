@@ -1,0 +1,106 @@
+-- Q1. Create Employee table as defined above. Ensure the Emp_name and
+--EMP_emailid are not null
+--Creating table
+CREATE TABLE Employee 
+(
+--using EMP_ID as primary key
+EMP_id NUMBER PRIMARY KEY,
+--not null: must provide value for this variable
+EMP_name VARCHAR2(20) NOT NULL,
+EMP_department VARCHAR2(20),
+EMP_contactno NUMBER,
+EMP_emailid VARCHAR2(20) NOT NULL,
+EMP_salary NUMBER,
+--CHECK constraint ensures the value must be either 'yes' or 'no'
+EMP_ispermanent VARCHAR2(20) CHECK (EMP_ispermanent IN ('yes', 'no'))
+);
+
+--using insert command, inserts the values inside the table as first row
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (1, 'John', 'D-111', 3456789123, 'john@example.com', 5310, 'no');
+
+-- Q2. Insert the second and third rows in one Insert command in the Employee table.
+--inserting second and third row using single insert command
+INSERT ALL INTO 
+    Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent) VALUES (2, 'Emily', 'D-112', 7543129865, 'emily@example.com', 4817, 'yes')
+    Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent) VALUES (3, 'Michael', 'D-111', 7865432190, 'michael@example.com', 5163, 'no')
+
+--inserting individual rows
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (2, 'Emily', 'D-112', 7543129865, 'emily@example.com', 4817, 'yes');
+
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (3, 'Michael', 'D-111', 7865432190, 'michael@example.com', 5163, 'no');
+
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (4, 'Sarah', 'D-113', 8123456798, 'sarah@example.com', 4292, 'yes');
+
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (5, 'David', 'D-114', 2354678912, 'david@example.com', 5609, 'no');
+
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (6, 'Jessica', 'D-112', 6489123574, 'jessica@example.com', 5784, 'yes');
+
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (7, 'Matthew', 'D-111', 9078563421, 'matthew@example.com', 5036, 'no');
+
+-- Q3.Delete the row/s from the Employee table where the salary is more than 5000.
+--This statement deletes the row(s) from the Employee table where the EMP_salary column is greater than 5000.
+DELETE FROM EMPLOYEE
+WHERE EMP_salary > 5000;
+
+--inserting another row
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (8, 'Arden', 'D-123', 4375571889, 'arden@example.com', 4999, 'yes');
+
+-- Q4. Display the detail of the employee whose name starts with A and whose third
+--character is d following any number of characters.
+--the LIKE operator is used with the pattern 'A_d%'.
+--The underscore character '_' in the pattern represents any single character,
+--and the percentage symbol '%' represents any number of characters.
+SELECT * FROM Employee
+WHERE EMP_name LIKE 'A_d%';
+
+-- Q5. Display the details of the employee who works either for department D-111 or D-112.
+--WHERE clause specifies the condition EMP_department IN ('D-111', 'D-112')
+SELECT * FROM Employee
+WHERE EMP_department IN ('D-111', 'D-112');
+
+--altering the EMP_emailid variable stroage capacity
+ALTER TABLE Employee
+MODIFY (EMP_emailid VARCHAR2(40));
+
+--inserting another row
+INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
+VALUES (9, 'ujjwal', 'D-111', 4375571882, 'u@my.centennialcollege.ca', 6000, 'yes');
+
+-- Q6. Write an SQL command to display the detail of an employee whose email is in my.Centennialcollege.ca
+SELECT * FROM Employee
+WHERE EMP_emailid LIKE '%@my.centennialcollege.ca';
+
+-- Q7. How many permanent Employees take a salary more than 3000?
+SELECT * FROM Employee
+WHERE EMP_ispermanent = 'yes' AND EMP_salary > 3000;
+
+-- Q8. What is the highest salary that is paid to permanent employees?
+SELECT MAX(EMP_salary)
+FROM Employee
+WHERE EMP_ispermanent = 'yes';
+
+-- Q9. Display the Employee name and Employee contact number of the Employee
+--who works in department D-123.
+SELECT EMP_name, EMP_contactno
+FROM Employee
+WHERE EMP_department = 'D-123';
+
+-- Q10. How many distinct departments are in employee table? 
+SELECT COUNT(DISTINCT EMP_department)
+FROM Employee;
+
+-- Selecting all data from the Employee table
+SELECT * FROM employee;
+
+DROP TABLE Employee;
+
+--commiting the file
+commit;
