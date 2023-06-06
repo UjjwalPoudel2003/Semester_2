@@ -1,0 +1,90 @@
+CREATE TABLE idTable (firstname VARCHAR2(20) NOT NULL, lastname VARCHAR2(20) NOT NULL, UNIQUE(firstname, lastname));
+INSERT INTO idTable VALUES('jikson', 'besnet');
+INSERT INTO idTable VALUES('zak1', 'mak');
+INSERT INTO idTable VALUES('zak', 'mak');
+
+SELECT * FROM idTable;
+
+CREATE TABLE Person (
+    Per_ID number NOT NULL primary key,
+    Last_Name varchar(25) NOT NULL,
+    First_Name varchar(25) NOT NULL,
+    Age number
+);
+
+--Not null use modify
+ALTER TABLE Person
+MODIFY Age int NOT NULL;
+
+drop table person;
+CREATE TABLE Persons (
+    Per_ID number NOT NULL unique,
+    Last_Name varchar(25) NOT NULL,
+    First_Name varchar(25) NOT NULL,
+    Age number
+);
+
+ALTER TABLE Persons  
+ADD UNIQUE (First_name);
+
+ALTER TABLE Persons
+ADD CONSTRAINT UC_Person UNIQUE (Age,Last_Name);
+
+CREATE TABLE Persons1 (
+    Per_ID number NOT NULL unique,
+    Last_Name varchar(25) NOT NULL,
+    First_Name varchar(25) NOT NULL,
+    Age number,
+    CONSTRAINT Uniq_Person UNIQUE(PEr_ID,Last_Name) --UNIQUE constraint on multiple columns
+);
+
+CREATE TABLE Persons2 (
+    Per_ID number NOT NULL,
+    Last_Name varchar(25) NOT NULL,
+    First_Name varchar(25) NOT NULL,
+    Age number,
+    CONSTRAINT PK_Person PRIMARY KEY (Per_ID,Last_Name) --PRIMARY KEY constraint on multiple columns
+);
+
+ALTER TABLE Persons2
+DROP CONSTRAINT PK_Person;
+
+ALTER TABLE Persons2
+ADD PRIMARY KEY (Per_ID);
+
+desc persons2;
+
+CREATE TABLE Orders_new(
+    Order_ID number NOT NULL,
+    OrderNumber number NOT NULL,
+    Per_ID number,
+    PRIMARY KEY (Order_ID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (Per_ID)
+    REFERENCES Persons(Per_ID)
+    
+);
+
+drop table orders_new;
+
+ALTER TABLE Orders_new
+ADD FOREIGN KEY (Per_ID) REFERENCES Persons2(Per_ID);
+
+ALTER TABLE Orders_new
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (Per_ID) REFERENCES Persons2(Per_ID);
+
+ALTER TABLE Persons2
+ADD CHECK (Age>=18);
+
+ALTER TABLE Persons
+ADD CONSTRAINT CHK_PersonAge CHECK (Age>=18 AND Last_name='MAlek');
+
+ALTER TABLE Persons
+drop CONSTRAINT CHK_PersonAge ;
+
+select CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+from USER_CONSTRAINTS;
+
+desc orders_new;
+
+commit;
