@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/dripink-personal-use');
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -16,6 +17,7 @@ body{
 .title h1 {
     font-size: 124px;
     font-weight: 800;
+    font-family: 'DRIPINK PERSONAL USE', sans-serif;
     margin: 8px 0px -32px 0px;
 }
 

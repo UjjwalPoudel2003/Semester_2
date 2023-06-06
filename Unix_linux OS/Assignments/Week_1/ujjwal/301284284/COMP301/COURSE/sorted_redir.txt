@@ -1,1 +1,0 @@
-This is the first example of redirector Operator, this will create a file name redir_example and gives option to write it.

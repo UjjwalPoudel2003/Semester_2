@@ -21,16 +21,10 @@ VALUES (1, 'John', 'D-111', 3456789123, 'john@example.com', 5310, 'no');
 
 -- Q2. Insert the second and third rows in one Insert command in the Employee table.
 --inserting second and third row using single insert command
-INSERT ALL INTO 
-    Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent) VALUES (2, 'Emily', 'D-112', 7543129865, 'emily@example.com', 4817, 'yes')
-    Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent) VALUES (3, 'Michael', 'D-111', 7865432190, 'michael@example.com', 5163, 'no')
-
---inserting individual rows
-INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
-VALUES (2, 'Emily', 'D-112', 7543129865, 'emily@example.com', 4817, 'yes');
-
-INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
-VALUES (3, 'Michael', 'D-111', 7865432190, 'michael@example.com', 5163, 'no');
+INSERT ALL 
+    INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent) VALUES (2, 'Emily', 'D-112', 7543129865, 'emily@example.com', 4817, 'yes')
+    INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent) VALUES (3, 'Michael', 'D-111', 7865432190, 'michael@example.com', 5163, 'no')
+    select * from dual;
 
 INSERT INTO Employee(EMP_id, EMP_name, EMP_department, EMP_contactno, EMP_emailid, EMP_salary, EMP_ispermanent)
 VALUES (4, 'Sarah', 'D-113', 8123456798, 'sarah@example.com', 4292, 'yes');
@@ -99,8 +93,6 @@ FROM Employee;
 
 -- Selecting all data from the Employee table
 SELECT * FROM employee;
-
-DROP TABLE Employee;
 
 --commiting the file
 commit;
