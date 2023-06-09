@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Runtime.Remoting;
 
 namespace xcptions
 {
@@ -7,7 +8,8 @@ namespace xcptions
     {
         static void Main(string[] args)
         {
-            TestOperatorOverloading();
+            //TestOperatorOverloading();
+            TestException();
         }
 
         static void TestOperatorOverloading()
@@ -59,86 +61,192 @@ namespace xcptions
 
         static void TestException()
         {
-            
+            int a, b, c;
+            a = 5;
+            b = 0;
+
+            //create array of integers below 10
+            int[] ints = { 1, 2, 3, 4 };
+
+
+
+            try //containts statement that will likely generate errors
+            {
+
+                Console.Write("Enter a number a: ");
+                a = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter a number b: ");
+                b = Convert.ToInt32(Console.ReadLine());
+
+                c = a / b;
+                //ints[2] += c;
+                //ints[7] += c;
+
+                //foreach (int i in ints)
+                //{
+                //    Console.WriteLine(i);
+                //}
+
+                if (b % 2 != 0)
+                {
+                    //odd number, generate OddNumberException
+                    throw new OddNumberException();
+                }
+
+                Console.WriteLine($" {a} / {b} = {c}");
+
+            }
+            //try cannot be used alone, must be used either with catch or finally
+
+            catch (DivideByZeroException Dbze)
+            {
+                Console.WriteLine($"Cannot perform division by 0: {Dbze}");
+            }
+
+            catch (FormatException Fe)
+            {
+                Console.WriteLine($"Can only use integers: {Fe.Message}");
+            }
+
+            catch (OddNumberException one)
+            {
+                Console.WriteLine($"OddNumberException: {one.Message}");
+            }
+
+            //general exception class
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            finally //always executed
+            {
+                Console.WriteLine("\nFinally block executed, try and catch completed");
+            }
+
+            Console.WriteLine("\nDivision Completed");
         }
 
-        class Time
+        static int PerformDivision(int x, int y)
         {
-            public int Hour { get; set; }
-            public int Minutes { get; set; }
-            public int Seconds { get; set; }
-            
-            public Time(int h, int m, int s)
+            int z = 0;
+
+            try
             {
-                this.Hour = h;
-                this.Minutes = m;
-                this.Seconds = s;
+                z = x / y;
             }
 
-            public override string ToString()
+            catch(DivideByZeroException Dbze)
             {
-                return $"{this.Hour} : {this.Minutes} : {this.Seconds}";
+                Console.WriteLine($"Cannot perform division by 0: {Dbze}");
             }
 
-            //overloading the == operator
-            public static bool operator != (Time firstObj, Time secondObj)
+            catch (FormatException Fe)
             {
-                bool result = false;
+                Console.WriteLine($"Can only use integers: {Fe.Message}");
+            }
 
-                //if the Hour value and Minutes value for both the objects are same
-                //objects are same
-                if ((firstObj.Hour != secondObj.Hour && firstObj.Minutes != secondObj.Minutes))
-                {
-                    return result;
-                }
-                //same object
-                result = true;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
 
+            finally //always executed
+            {
+                Console.WriteLine("\nFinally block executed, try and catch completed");
+            }   
+
+            return z;
+        }
+
+    }
+
+    //Inherit from Exception class
+    //to define a custom exception class
+    class OddNumberException : Exception
+    {
+        //must define message property to give description of Exception
+        public override string Message =>
+            "This scientific calculation doesn't accept odd numbers.";
+    }
+
+    class Time
+    {
+        public int Hour { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+
+        public Time(int h, int m, int s)
+        {
+            this.Hour = h;
+            this.Minutes = m;
+            this.Seconds = s;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Hour} : {this.Minutes} : {this.Seconds}";
+        }
+
+        //overloading the == operator
+        public static bool operator !=(Time firstObj, Time secondObj)
+        {
+            bool result = false;
+
+            //if the Hour value and Minutes value for both the objects are same
+            //objects are same
+            if ((firstObj.Hour != secondObj.Hour && firstObj.Minutes != secondObj.Minutes))
+            {
                 return result;
             }
+            //same object
+            result = true;
 
-            public static bool operator ==(Time firstObj, Time secondObj)
+            return result;
+        }
+
+        public static bool operator ==(Time firstObj, Time secondObj)
+        {
+            bool result = false;
+
+            //if the Hour value and Minutes value for both the objects are same
+            //objects are same
+            if ((firstObj.Hour == secondObj.Hour && firstObj.Minutes == secondObj.Minutes))
             {
-                bool result = false;
-
-                //if the Hour value and Minutes value for both the objects are same
-                //objects are same
-                if ((firstObj.Hour == secondObj.Hour && firstObj.Minutes == secondObj.Minutes))
-                {
-                    return result;
-                }
-                //same object
-                result = true;
-
                 return result;
             }
+            //same object
+            result = true;
 
-            public static Time operator  +(Time firstObj, Time secondObj)
+            return result;
+        }
+
+        public static Time operator +(Time firstObj, Time secondObj)
+        {
+            int h = firstObj.Hour + secondObj.Hour;
+            int m = firstObj.Minutes + secondObj.Minutes;
+            int s = firstObj.Seconds + secondObj.Seconds;
+
+            //perform necessary calculations for valid time
+            if (s > 59)
             {
-                int h = firstObj.Hour + secondObj.Hour;
-                int m = firstObj.Minutes + secondObj.Minutes;
-                int s = firstObj.Seconds + secondObj.Seconds;
-
-                //perform necessary calculations for valid time
-                if (s > 59)
-                {
-                    m += 1;
-                    s -= 60;
-                }
-                
-                if (m > 59)
-                {
-                    h += 1;
-                    m -= 60;
-                }
-
-                if (h > 24)
-                {
-                    h -= 24;
-                }
-
-                return new Time(h, m, s);
+                m += 1;
+                s -= 60;
             }
+
+            if (m > 59)
+            {
+                h += 1;
+                m -= 60;
+            }
+
+            if (h > 24)
+            {
+                h -= 24;
+            }
+
+            return new Time(h, m, s);
         }
     }
 }
