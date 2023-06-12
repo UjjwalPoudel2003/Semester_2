@@ -1,0 +1,5 @@
+#if statement in bash
+1. if-then-fi			if [cond] then command fi
+2. if-then-else-fi		[cond1] [cond2]
+3. if-then-elif-else-if		if [cond1] elif [cond2] elif [cond3] else fi-fi-fi
+
