@@ -1,0 +1,101 @@
+--Create 2 tables based on the ER model shown below. Include necessary constraints in
+--the CREATE TABLE statements. Insert 5 records in each table.
+
+CREATE TABLE JOB 
+(
+    JOB_CODE CHAR(3) CONSTRAINT JOB_PK PRIMARY KEY,
+    JOB_CLASS CHAR(30),
+    CHG_HOUR NUMBER(5, 2)
+);
+
+CREATE TABLE EMP11
+(
+    EMP_NUM NUMBER(*,0) CONSTRAINT EMP_NUM_PK PRIMARY KEY,
+    EMP_FNAME CHAR(20),
+    EMP_LNAME CHAR(20) CONSTRAINT EMP_LNAME_UK UNIQUE,
+    JOB_CLASS CHAR(3),
+    HIRE_DATE DATE,
+    CONSTRAINT JOB_FK FOREIGN KEY (JOB_CLASS)
+    REFERENCES JOB (JOB_CODE)
+);
+--Inserting in JOB Table
+INSERT INTO JOB (JOB_CODE, JOB_CLASS, CHG_HOUR)
+VALUES ('001', 'Manager', 35.75);
+
+INSERT INTO JOB (JOB_CODE, JOB_CLASS, CHG_HOUR)
+VALUES ('002', 'Technician', 25.50);
+
+INSERT INTO JOB (JOB_CODE, JOB_CLASS, CHG_HOUR)
+VALUES ('003', 'Analyst', 28.90);
+
+INSERT INTO JOB (JOB_CODE, JOB_CLASS, CHG_HOUR)
+VALUES ('004', 'Developer', 32.25);
+
+INSERT INTO JOB (JOB_CODE, JOB_CLASS, CHG_HOUR)
+VALUES ('005', 'Accountant', 30.00);
+
+--Inserting into EMP11 Table
+INSERT INTO EMP11 (EMP_NUM, EMP_FNAME, EMP_LNAME, JOB_CLASS, HIRE_DATE)
+VALUES (1001, 'John', 'Smith', '001', DATE '2022-03-15');
+
+INSERT INTO EMP11 (EMP_NUM, EMP_FNAME, EMP_LNAME, JOB_CLASS, HIRE_DATE)
+VALUES (1002, 'Sarah', 'Johnson', '003', DATE '2021-07-21');
+
+INSERT INTO EMP11 (EMP_NUM, EMP_FNAME, EMP_LNAME, JOB_CLASS, HIRE_DATE)
+VALUES (1003, 'Michael', 'Davis', '002', DATE '2023-01-10');
+
+INSERT INTO EMP11 (EMP_NUM, EMP_FNAME, EMP_LNAME, JOB_CLASS, HIRE_DATE)
+VALUES (1004, 'Jennifer', 'Brown', '005', DATE '2022-11-05');
+
+INSERT INTO EMP11 (EMP_NUM, EMP_FNAME, EMP_LNAME, JOB_CLASS, HIRE_DATE)
+VALUES (1005, 'David', 'Miller', '004', DATE '2023-04-02');
+
+--Question_1. Modify the table Job:
+--a. Add a column named overtimeCharge (NOT NULL)
+ALTER TABLE JOB
+ADD overtimeCharge NUMBER;
+
+UPDATE JOB
+SET overtimeCharge = 0;
+
+ALTER TABLE JOB
+MODIFY overtimeCharge NUMBER NOT NULL;
+
+--b. Add constraint named charge_ck (CHG_HOUR >=25)
+ALTER TABLE JOB
+ADD CONSTRAINT charge_ck CHECK (CHG_HOUR >= 25);
+
+--Question_2. Delete constraint name charge_ck.
+ALTER TABLE JOB
+DROP CONSTRAINT charge_ck;
+
+--Question_3. Delete overtimeCharge column.
+ALTER TABLE JOB
+DROP COLUMN overtimeCharge;
+
+--Question_4. Create a new table containing two columns from the existing EMP11 table:
+--EMP_NUM, EMP_FNAME, EMP_LNAME. The name of the EMP_NUM column should
+--be EMP_ID, and the other column should keep its original name. Name the new table
+--EMP11_master. After the table is created, add a new column EMP_birthdate to the
+--EMP11_master table.
+CREATE TABLE EMP11_master 
+(
+    EMP_NUM NUMBER(*,0) PRIMARY KEY,
+    EMP_FNAME CHAR(20),
+    EMP_LNAME CHAR(20)
+);
+
+INSERT INTO EMP11_master (EMP_ID, EMP_FNAME, EMP_LNAME)
+SELECT EMP_NUM, EMP_FNAME, EMP_LNAME
+FROM EMP11;
+
+
+
+COMMIT;
+
+
+SELECT * FROM JOB;
+SELECT * FROM EMP11;
+
+DROP TABLE JOB;
+DROP TABLE EMP11;
