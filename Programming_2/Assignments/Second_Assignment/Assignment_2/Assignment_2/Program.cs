@@ -188,7 +188,7 @@ namespace Assignment_2
 
         public override string ToString()
         {
-            string pillarshipDetails = $"{this.storeID}, {this.storeName}, {this.storeAddress}";
+            string pillarshipDetails = $"\n{this.storeID}, {this.storeName}, {this.storeAddress}\n";
             foreach (Car car in this.CarList)
             {
                 pillarshipDetails += $"\n{car}";
