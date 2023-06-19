@@ -80,22 +80,35 @@ DROP COLUMN overtimeCharge;
 --EMP11_master table.
 CREATE TABLE EMP11_master 
 (
-    EMP_NUM NUMBER(*,0) PRIMARY KEY,
+    EMP_ID NUMBER(*,0) PRIMARY KEY,
     EMP_FNAME CHAR(20),
     EMP_LNAME CHAR(20)
 );
-
-INSERT INTO EMP11_master (EMP_ID, EMP_FNAME, EMP_LNAME)
-SELECT EMP_NUM, EMP_FNAME, EMP_LNAME
+--Inserting the value of EMP11 table into EMP11_master
+INSERT INTO EMP11_master (EMP_ID, EMP_FNAME)
+SELECT EMP_NUM, EMP_FNAME 
 FROM EMP11;
 
+--Adding new column EMP_birthdate
+ALTER TABLE EMP11_master
+ADD EMP_birthdate DATE;
 
+--Question_5. Delete the EMP11_Master table permanently so that it isn’t moved to the recycle
+--bin. Delete the EMP11 table so that it can be restored. Restore the EMP11 table and verify
+--that it’s available again.
 
-COMMIT;
+--SETTING RECYCLEBIN TO ON
+ALTER SESSION SET RECYCLEBIN = 'ON';
 
+--Permanantly deleting table EMP11_master
+TRUNCATE TABLE EMP11_MASTER;
 
-SELECT * FROM JOB;
+--Deleting the table EMP11
+DROP TABLE EMP11;
+
+--Using flashback command to recover the table
+FLASHBACK TABLE EMP11 TO BEFORE DROP;
+
 SELECT * FROM EMP11;
 
-DROP TABLE JOB;
-DROP TABLE EMP11;
+COMMIT;
