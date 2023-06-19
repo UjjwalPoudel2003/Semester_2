@@ -45,3 +45,20 @@ body {
     color: #F71752;
     line-height: 65.2px;
 }
+
+.main__slides{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+/* JS styles begin */
+
+#fav__wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 167.7px;    
+}
+
