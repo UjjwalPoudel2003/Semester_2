@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./script.js" defer></script>
+    <title>Bill and Ship</title>
+</head>
+
+<body>
+    <form class="body__form">
+        <header class="form__header">
+
+        </header>
+
+        <div class="form__body">
+            <fieldset class="form__fieldset">
+                <div class="form__header">
+                    <legend class="form__legend">Billing Address</legend>
+                </div>
+
+                <!-- For First Name -->
+                <div class="form__input">
+                    <label for="f_name">First Name</label>
+                    <input type="text" id="f_name">
+                </div>
+
+                <!-- For Last Name -->
+                <div class="form__input">
+                    <label for="l_name">Last Name</label>
+                    <input type="text" id="l_name" >
+                </div>
+
+                <!-- For Street Address -->
+                <div class="form__input">
+                    <label for="address">Street Address</label>
+                    <input type="text" id="address">
+                </div>
+
+                <!-- For City -->
+                <div class="form__input">
+                    <label for="city">City</label>
+                    <input type="text" id="city">
+                </div>
+
+                <!-- For state -->
+                <div class="form__input">
+                    <label for="state">State</label>
+                    <select name="state" id="state">
+                        <option value="AB">AB</option>
+                        <option value="BC">BC</option>
+                        <option value="MB">MB</option>
+                        <option value="NB">NB</option>
+                        <option value="NL">NL</option>
+                        <option value="NS">NS</option>
+                        <option value="ON">ON</option>
+                        <option value="QC">QC</option>
+                    </select>
+                </div>
+
+                <!-- For Zip Code -->
+                <div class="form__input">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip" maxlength="6">
+                </div>
+
+                <!-- For Phone number -->
+                <div class="form__input">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" maxlength="10" size="10" pattern="[0-9]{10}">
+                </div>
+            </fieldset>
+
+            <!-- Delivery address with same as billing address checker box -->
+            <fieldset class="form__fieldset">
+                <div class="form__header">
+                    <legend class="form__legend padder">Delivery Address</legend>
+                </div>
+
+                <div class="form__checkbox">
+                    <input type="checkbox" id="same_as_billing">
+                    <label for="same_as_billing">Same As Billing Address</label>
+                </div>
+
+                <!-- For First Name -->
+                <div class="form__input">
+                    <label for="f_name">First Name</label>
+                    <input type="text" id="f_name_delivery">
+                </div>
+
+                <!-- For Last Name -->
+                <div class="form__input">
+                    <label for="l_name">Last Name</label>
+                    <input type="text" id="l_name_delivery">
+                </div>
+
+                <!-- For Street Address -->
+                <div class="form__input">
+                    <label for="address">Street Address</label>
+                    <input type="text" id="address_delivery">
+                </div>
+
+                <!-- For City -->
+                <div class="form__input">
+                    <label for="city">City</label>
+                    <input type="text" id="city_delivery">
+                </div>
+
+                <!-- For state -->
+                <div class="form__input">
+                    <label for="state">State</label>
+                    <select name="state" id="state_delivery">
+                        <option value="AB">AB</option>
+                        <option value="BC">BC</option>
+                        <option value="MB">MB</option>
+                        <option value="NB">NB</option>
+                        <option value="NL">NL</option>
+                        <option value="NS">NS</option>
+                        <option value="ON">ON</option>
+                        <option value="QC">QC</option>
+                    </select>
+                </div>
+
+                <!-- For Zip Code -->
+                <div class="form__input">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" id="zip_delivery" maxlength="6">
+                </div>
+
+                <!-- For Phone number -->
+                <div class="form__input">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" id="phone_delivery">
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="form__footer">
+            <button type="submit" class="form__button">Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>
