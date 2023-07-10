@@ -1,0 +1,12 @@
+SELECT * FROM Customers;
+SELECT * FROM Books WHERE pubid > 4;
+
+SELECT * FROM customers WHERE state='NY';
+SELECT * FROM Books WHERE cost BETWEEN 20 AND 35;
+SELECT * FROM Customers WHERE State IN('SE', 'FL', 'NY');
+SELECT * FROM Books WHERE title LIKE 'H_W%';
+SELECT * FROM Books WHERE Discount=3 OR category='CHILDREN';
+SELECT Title, Retail-Cost AS Profit FROM Books;
+SELECT * FROM Books WHERE (Category = 'FAMILY LIFE' OR Pubid = 4) AND Cost > 15;
+
+SELECT order#, customer# FROM Orders Order by 1;
