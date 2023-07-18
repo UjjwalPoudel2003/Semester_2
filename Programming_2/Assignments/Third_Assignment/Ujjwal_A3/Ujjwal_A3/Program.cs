@@ -267,7 +267,7 @@ namespace Ujjwal_A3
             //This is the static method will accept account number as parameter and will display details for
             //the matching account.If the matching account does not find it must raise and catch the
             //AccountNotFoundException.
-
+            Console.WriteLine("Consumer ID\t\tName\t\t");
             foreach (Account account in AccountList)
             {
                 if (account.AccountNum == accountNum)
