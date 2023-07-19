@@ -134,6 +134,7 @@ namespace Ujjwal_A3
     class SavingsAccount : Account
     {
         public double Balance { get; set; }
+        public string AccountType = "Savings";
 
         public SavingsAccount(string id, string name, int accountNum, double balance = 0) : base(id, name, accountNum)
         {
@@ -195,7 +196,7 @@ namespace Ujjwal_A3
 
         public override string ToString()
         {
-            return $"Account Number: {this.AccountNum}, Balance: {this.Balance}";
+            return $"{this.ID,-20}{this.Name,-20}{this.AccountNum,-19}{this.AccountType,-15}{this.Balance,-3:C}";
         }
     } // end of SavingsAccount class
 
@@ -203,6 +204,7 @@ namespace Ujjwal_A3
     {
         public double Balance { get; set; }
         public double Overdraft = 2000;
+        public string AccountType = "Chequing";
 
         public ChequingAccount(string id, string name, int accountNum, double balance = 0) : base(id, name, accountNum)
         {
@@ -264,7 +266,7 @@ namespace Ujjwal_A3
 
         public override string ToString()
         {
-            return $"Account Number: {this.AccountNum}, Balance: {this.Balance}";
+            return $"{this.ID,-20}{this.Name,-20}{this.AccountNum,-19}{this.AccountType,-15}{this.Balance,-3:C}";
         }
     } // end of ChequingAccount class
 
@@ -287,6 +289,15 @@ namespace Ujjwal_A3
 
         public static void showAll()
         {
+            string a = "Consumer ID";
+            string b = "Name";
+            string c = "Account Number";
+            string d = "Type";
+            string e = "Balance";
+
+            Console.WriteLine($"\n\n{new string('-',34)}All Account Information{new string('-',33)}");
+            Console.WriteLine($"{a,-20}{b,-20}{c,-19}{d,-15}{e,-3}");
+            Console.WriteLine($"{new string('-', 90)}");
             // This is the static property that will iterate through the AccountList and display all the accounts
             foreach (Account account in AccountList)
             {
@@ -296,10 +307,6 @@ namespace Ujjwal_A3
 
         public static void showAll(int accountNum)
         {
-            //This is the static method will accept account number as parameter and will display details for
-            //the matching account.If the matching account does not find it must raise and catch the
-            //AccountNotFoundException.
-            Console.WriteLine("Consumer ID\t\tName\t\tAccount Number\t\tType\t\tBalance");
             try
             {
                 foreach (Account account in AccountList)
@@ -309,10 +316,10 @@ namespace Ujjwal_A3
                         Console.WriteLine(account);
                     }
 
-                    else
+                    else 
                     {
                         throw new AccountNotFoundException();
-                    }
+                    } 
                 }
             }
             catch (Exception e)
