@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Schema;
 
 namespace Ujjwal_A3
 {
@@ -160,7 +157,8 @@ namespace Ujjwal_A3
                     this.Balance -= amount;
 
                     // displaying the upadated balance
-                    Console.WriteLine($"Updated balance: {this.Balance}");
+                    Console.WriteLine($"Successfully withdrawn {amount:C} from the account number {this.AccountNum}");
+                    Console.WriteLine($"Updated balance is {this.Balance}");
                 }
             }
 
@@ -184,7 +182,8 @@ namespace Ujjwal_A3
                     this.Balance += amount;
 
                     // displaying the upadated balance
-                    Console.WriteLine($"Updated balance: {this.Balance}");
+                    Console.WriteLine($"Successfully Deposited {amount:C} to the account number {this.AccountNum}");
+                    Console.WriteLine($"Updated balance is {this.Balance}");
                 }
             }
 
@@ -230,7 +229,8 @@ namespace Ujjwal_A3
                     this.Balance -= amount;
 
                     // displaying the upadated balance
-                    Console.WriteLine($"Updated balance: {this.Balance}");
+                    Console.WriteLine($"Successfully withdrawn {amount:C} from the account number {this.AccountNum}");
+                    Console.WriteLine($"Updated balance is {this.Balance}");
                 }
             }
             
@@ -254,7 +254,8 @@ namespace Ujjwal_A3
                     this.Balance += amount;
 
                     // displaying the upadated balance
-                    Console.WriteLine($"Updated balance: {this.Balance}");
+                    Console.WriteLine($"Successfully withdrawn {amount:C} to the account number {this.AccountNum}");
+                    Console.WriteLine($"Updated balance is {this.Balance}");
                 }
             }
             
@@ -298,7 +299,7 @@ namespace Ujjwal_A3
             Console.WriteLine($"\n\n{new string('-',34)}All Account Information{new string('-',33)}");
             Console.WriteLine($"{a,-20}{b,-20}{c,-19}{d,-15}{e,-3}");
             Console.WriteLine($"{new string('-', 90)}");
-            // This is the static property that will iterate through the AccountList and display all the accounts
+
             foreach (Account account in AccountList)
             {
                 Console.WriteLine(account);
@@ -307,6 +308,7 @@ namespace Ujjwal_A3
 
         public static void showAll(int accountNum)
         {
+            Console.WriteLine($"\n\n{new string('-', 28)}Details Of Account Number {accountNum}{new string('-', 28)}");
             try
             {
                 foreach (Account account in AccountList)
