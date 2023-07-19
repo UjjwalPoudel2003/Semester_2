@@ -142,38 +142,54 @@ namespace Ujjwal_A3
 
         public override void withdraw(double amount)
         {
-            if (amount > this.Balance)
+            try
             {
-                throw new InsufficientBalanceException();
+                if (amount > this.Balance)
+                {
+                    throw new InsufficientBalanceException();
+                }
+
+                if (this.Balance - amount < 3000)
+                {
+                    throw new MinimumBalanceException();
+                }
+
+                else
+                {
+                    this.Balance -= amount;
+
+                    // displaying the upadated balance
+                    Console.WriteLine($"Updated balance: {this.Balance}");
+                }
             }
 
-            if (this.Balance - amount < 3000)
+            catch (Exception e)
             {
-                throw new MinimumBalanceException();
-            }
-
-            else
-            {
-                this.Balance -= amount;
-
-                // displaying the upadated balance
-                Console.WriteLine($"Updated balance: {this.Balance}");
+                Console.WriteLine(e.Message);
             }
         }
 
         public override void deposit(double amount)
         {
-            if (amount <= 0)
+            try
             {
-                throw new IncorrectAmountException();
+                if (amount <= 0)
+                {
+                    throw new IncorrectAmountException();
+                }
+
+                else
+                {
+                    this.Balance += amount;
+
+                    // displaying the upadated balance
+                    Console.WriteLine($"Updated balance: {this.Balance}");
+                }
             }
 
-            else
+            catch (Exception e)
             {
-                this.Balance += amount;
-
-                // displaying the upadated balance
-                Console.WriteLine($"Updated balance: {this.Balance}");
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -195,38 +211,54 @@ namespace Ujjwal_A3
 
         public override void withdraw(double amount)
         {
-            if (amount > (this.Balance + this.Overdraft))
+            try
             {
-                throw new OverdraftLimitException();
+                if (amount > (this.Balance + this.Overdraft))
+                {
+                    throw new OverdraftLimitException();
+                }
+
+                if (amount < 0)
+                {
+                    throw new IncorrectAmountException();
+                }
+
+                else
+                {
+                    this.Balance -= amount;
+
+                    // displaying the upadated balance
+                    Console.WriteLine($"Updated balance: {this.Balance}");
+                }
             }
-
-            if (amount < 0)
+            
+            catch (Exception e)
             {
-                throw new IncorrectAmountException();
-            }
-
-            else
-            {
-                this.Balance -= amount;
-
-                // displaying the upadated balance
-                Console.WriteLine($"Updated balance: {this.Balance}");
+                Console.WriteLine(e.Message);
             }
         }
 
         public override void deposit(double amount)
         {
-            if (amount < 0)
+            try
             {
-                throw new IncorrectAmountException();
+                if (amount < 0)
+                {
+                    throw new IncorrectAmountException();
+                }
+
+                else
+                {
+                    this.Balance += amount;
+
+                    // displaying the upadated balance
+                    Console.WriteLine($"Updated balance: {this.Balance}");
+                }
             }
-
-            else
+            
+            catch (Exception e)
             {
-                this.Balance += amount;
-
-                // displaying the upadated balance
-                Console.WriteLine($"Updated balance: {this.Balance}");
+                Console.WriteLine(e.Message);
             }
         }
 
@@ -267,18 +299,25 @@ namespace Ujjwal_A3
             //This is the static method will accept account number as parameter and will display details for
             //the matching account.If the matching account does not find it must raise and catch the
             //AccountNotFoundException.
-            Console.WriteLine("Consumer ID\t\tName\t\t");
-            foreach (Account account in AccountList)
+            Console.WriteLine("Consumer ID\t\tName\t\tAccount Number\t\tType\t\tBalance");
+            try
             {
-                if (account.AccountNum == accountNum)
+                foreach (Account account in AccountList)
                 {
-                    Console.WriteLine(account);
-                }
+                    if (account.AccountNum == accountNum)
+                    {
+                        Console.WriteLine(account);
+                    }
 
-                else
-                {
-                    throw new AccountNotFoundException();
+                    else
+                    {
+                        throw new AccountNotFoundException();
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }
