@@ -1,39 +1,36 @@
 #!/bin/bash
 
-# Limit
+# User Input
+echo -n "Enter the amount: ";read amount
+
 limit=500
 
-# Tax Variables
-max_tax=0.035
-min_tax=0.02
+max_discount=25
+min_tax=2
 
-# Discount Variables
-max_discount=0.25
-min_discount=0.1
-
-# User Input
-echo -n "Enter the amount: "; read amount
-
-# Calculation Variables
-max_discount_amount=$amount*$max_discount # Amount greater than 500
-min_discount_amount=$amount*$min_discount # Amount lesser than 500
-
-max_tax_amount=$amount*$max_tax #Amount lesser than 500
-min_tax_amount=$amount*$min_tax #Amount greater than 500
-
+min_discount=10
+max_tax=35
 # Checking the Statements
-if [ $amount -ge $limit]
+if [ $amount -ge $limit ]
 then
-	$amount-=$max_discount_amount
-	$amount+=$min_tax_amount
+	discount=$((amount * max_discount / 100))
+	discounted_amount=$((amount - discount))
+	tax=$((discounted_amount * min_tax / 100))
+	total=$((discounted_amount + tax))
 else
-	$amount-=$min_discount_amount
-	$amount+=$max_tax_amount
+	 discount=$((amount * min_discount / 100))
+        discounted_amount=$((amount - discount))
+        tax=$((discounted_amount * max_tax / 1000))
+        total=$((discounted_amount + tax))
 fi
 
+echo
 # Final Invoice
-echo "^^^^^^Invoice Generator^^^^^^"
-echo "\t Discount: $max_discount_amount"
-echo "\t Tax: $min_tax_amount"
-echo "\t-------------------------"
-echo "\t Total: $amount"	
+echo "========== Invoice ==========="
+echo "      Item Cost:   $amount"
+echo "      Discount:    $discount"
+echo "      Tax Amount:  $tax"
+echo "------------------------------"
+echo "      Total Paid:  $total"
+echo
+echo "*** Please Come Back Again ***"
