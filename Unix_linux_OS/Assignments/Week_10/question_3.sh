@@ -6,9 +6,9 @@ passkey="COMP301"
 echo -n "Enter Username: "; read username
 echo -n "Enter Password: "; read password
 
-if [[ "$username" = "$userid" ]];
+if [ "$username" = "$userid" ]
 then
-	if [[ "$password" = "$passkey" ]];
+	if [ "$password" = "$passkey" ];
 	then
 		echo "user --> $userid <-- is valid!"
 	else
