@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Data Visualizer</title>
 </head>
+
 <body>
-    <h1>Upload Your FIle</h1>
-    <input type="file" id="fileInput" accept=".csv">
-    <button id="file-submit">Upload</button>
+    <!-- Header Starts Here -->
+    <header class="header">
+        <h1>Data Visualizer</h1>
+    </header>
+    <!-- Header Ends Here -->
+
+    <!-- Main Starts Here -->
+    <main class="main container">
+        <section class="main__file-upload">
+            <label class="label-input" for="file-input">Click To Choose The File: </label>
+            <input type="file" id="fileInput" name="file-input" accept=".csv">
+            <button id="file-submit">Upload</button>
+        </section>
+
+        <section class="main__table">
+            <div class="table-generator" id="table-generator">
+            </div>
+        </section>
+    </main>
+    <!-- Main Ends Here -->
+
+    <!-- Footer Starts Here -->
+    <footer>
+        <div class="footer" id="footer">
+            <p>For more</p>
+            <p><a href="ujjwalpoudel.me">ujjwalpoudel.me</a></p>
+        </div>
+    </footer>
+    <!-- Footer Ends Here -->
 </body>
 <script src="script.js"></script>
 </html>
