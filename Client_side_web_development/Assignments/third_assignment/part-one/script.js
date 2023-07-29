@@ -13,10 +13,12 @@ document.getElementById("file-submit").addEventListener("click", function() {
         reader.onload = function(e) {
             let fileContent = e.target.result;
             let json = csvToJson(fileContent);
-            console.log(json);
 
             // Replacing the extension of the file and saving it as JSON
             saveJson(json, file.name.replace(".csv", ".json"));
+
+            // Creating a table from the json data
+            createTable(json);
         }
     }
     catch (e) {
@@ -40,7 +42,7 @@ function csvToJson(csv) {
         result.push(obj);
     }
 
-    return JSON.stringify(result);
+    return (result);
 }
 
 // Function to save JSON to file
@@ -63,4 +65,50 @@ function saveJson(jsonFile, fileName) {
 
     // Clicking the link
     a.click();
+}
+
+// Creating a function to create table from the json data
+function createTable(json) {
+    let table = document.createElement("table");
+
+    // Object.keys(json[0]) returns the headers of the json data
+    // For example, if the json data is [{name: "John", age: 20}, {name: "Jane", age: 21}]
+    // Object.keys(json[0]) will return ["name", "age"]
+    let headers = Object.keys(json[0]);
+
+    // Creating the header row
+    let headerRow = document.createElement("tr");
+    
+
+    // Creating the header cells
+    // And appending them to the header row
+    // Using forEach to iterate over the headers array
+    headers.forEach(header => {
+        let th = document.createElement("th");
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
+
+    // Appending the header row to the table
+    table.appendChild(headerRow);
+
+    // Creating the data rows
+    // And appending them to the table
+    // Using forEach to iterate over the json array
+    json.forEach(data => {
+        let row = document.createElement("tr");
+
+        headers.forEach(header => {
+            // Creating the data cells
+            let cell = document.createElement("td");
+            cell.textContent = data[header];
+            row.appendChild(cell);
+        });
+
+        // Appending the data row to the table
+        table.appendChild(row);
+    });
+
+    // Appending the table to the div with id "table-generator"
+    document.getElementById("table-generator").appendChild(table);
 }
