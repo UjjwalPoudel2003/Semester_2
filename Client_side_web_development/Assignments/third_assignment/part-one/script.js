@@ -14,12 +14,20 @@ document.getElementById("file-submit").addEventListener("click", function() {
             let fileContent = e.target.result;
             let json = csvToJson(fileContent);
 
-            // Replacing the extension of the file and saving it as JSON
-            saveJson(json, file.name.replace(".csv", ".json"));
-
             // Creating a table from the json data
             createTable(json);
+
+            // Making the button visible
+            document.getElementById("download").style.display = "block";
+
+            document.getElementById("download").addEventListener("click", function() {
+                // Replacing the extension of the file and saving it as JSON
+                saveJson(json, file.name.replace(".csv", ".json"));
+            });
         }
+
+        // Reseting the file input
+        document.getElementById("fileInput").value = null;
     }
     catch (e) {
         window.alert(e);
@@ -111,4 +119,9 @@ function createTable(json) {
 
     // Appending the table to the div with id "table-generator"
     document.getElementById("table-generator").appendChild(table);
+}
+
+// Creating a Bar Graph
+function createBarGraph(json) {
+    
 }
