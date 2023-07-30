@@ -122,6 +122,19 @@ function createTable(json) {
 }
 
 // Creating a Bar Graph
-function createBarGraph(json) {
-    
-}
+// Insufficient time for creating the graph
+// function createBarGraph(json) {
+//     let graphContainer = document.getElementById("bar-graph");
+
+//     // Maximum value for the data
+//     let maxValue = 0;
+
+//     // Looping through the json data to find the maximum value
+//     for (var i = 0; i < json.length; i++) {
+//         let item = json[i];
+        
+//         if (item.Population > maxValue) {
+//             maxValue = item.value;
+//         }
+//     }
+// }
