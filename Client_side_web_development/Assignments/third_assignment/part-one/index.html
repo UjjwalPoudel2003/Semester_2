@@ -18,15 +18,29 @@
     <!-- Main Starts Here -->
     <main class="main container">
         <section class="main__file-upload">
-            <label class="label-input" for="file-input">Click To Choose The File: </label>
-            <input type="file" id="fileInput" name="file-input" accept=".csv">
-            <button id="file-submit">Upload</button>
+            <div class="upload">
+                <label class="label-input" for="file-input">Click To Choose The File: </label>
+                <input type="file" id="fileInput" name="file-input" accept=".csv" class="file-input">
+            </div>
+            <div class="main__file-submit">
+                <button id="file-submit" class="file-submit">Generate</button>
+            </div>
         </section>
 
         <section class="main__table">
             <div class="table-generator" id="table-generator">
             </div>
         </section>
+
+        <section class="main__download">
+            <div class="download">
+                <button id="download" class="download-btn">Download</button>
+            </div>
+        </section>  
+
+        <section class="main__chart">
+            <div class="bar-graph" id="bar-graph">
+            </div>
     </main>
     <!-- Main Ends Here -->
 
