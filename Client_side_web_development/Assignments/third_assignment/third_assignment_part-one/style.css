@@ -1,0 +1,186 @@
+/* Resetting default styles */
+@import url('https://cdn.jsdelivr.net/npm/reset-css@3.0.0/reset.min.css');
+
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: #03045E;
+    background-color: #C5D5EA;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 100%;
+}
+
+/* Header Starts Here */
+.header {
+    margin: 16px 0px;
+    text-align: center;
+}
+
+.header > h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 5em;
+    color: #03045E;
+    border-bottom: 5px solid #03045E;
+    padding: 32px 0px;
+    margin: 0px 0px 32px 0px;
+}
+/* Header Ends Here */
+
+/* Main Starts Here */
+.main__file-upload {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-input {
+    font-weight: 500;
+    font-size: 2.2em;
+    color: #03045E;
+}
+
+input[type=file]::file-selector-button {
+    border: 2px solid #03045E;
+    background-color: #C5D5EA;
+    border-radius: 8px;
+    color: #03045E;
+    padding: 10px;
+    margin: 0px 0px 16px 0px;
+    font-size: 2em;
+    box-sizing: border-box;
+  }
+  
+input[type=file]::file-selector-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+    cursor: pointer;
+}
+input[type='file']{
+    color: #03045E;
+}
+
+.file-submit {
+    border: 2px solid #03045E;
+    background-color: #C5D5EA;
+    border-radius: 8px;
+    color: #03045E;
+    padding: 10px;
+    margin: 0px 0px 16px 0px;
+    font-size: 2em;
+    box-sizing: border-box;
+    width: 200px;
+    margin: 32px 0px 64px 0px;
+}
+
+.file-submit:hover {
+    background-color: #F72585;
+    border: 2px solid #480CA8;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.main__table {
+    text-align: center;
+}
+
+table {
+    border-collapse: separate;
+    width: 100%;
+    max-width: 600px;
+    border: 3px solid #03045E;
+    border-radius: 17px;
+    margin: 32px auto;
+}
+
+th {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    padding: 12px;
+    background-color: #FFFFFF;
+}
+
+td {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    font-weight: 500;
+    padding: 8px;
+}
+
+tr:first-child > th:first-child {
+    border-radius: 16px 0px 0px 0px;
+}
+
+tr:first-child > th:last-child {
+    border-radius: 0px 16px 0px 0px;
+}
+
+tr:last-child > td:first-child {
+    border-radius: 0px 0px 0px 16px;
+}
+
+tr:last-child > td:last-child {
+    border-radius: 0px 0px 16px 0px;
+}
+
+tr:nth-child(even) {
+    background-color: #1B4965;
+    color: #FFFFFF;
+}
+
+tr:nth-child(odd) {
+    background-color: #FFFFFF;
+    color: #03045E;
+}
+
+.download-btn {
+    display: none;
+    margin: 24px auto;
+    font-size: 2em;
+    border: 2px solid #03045E;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #03045E;
+    padding: 10px;
+}
+
+.download-btn:hover {
+    background-color: #F72585;
+    border: 2px solid #480CA8;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+/* Main Ends Here */
+
+/* Footer Starts Here */
+.footer {
+    margin: 0px 0px 16px 0px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer >p {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    color: #03045E;
+}
+
+.footer > p > a {
+    text-decoration: none;
+    color: #03045E;
+}
+/* Footer Ends Here */
