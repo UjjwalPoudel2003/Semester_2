@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./assets/svg/" type="image/x-icon">
+    <title>Word Cloud Generator</title>
+</head>
+
+<body>
+    <!-- Header Starts -->
+    <header class="header">
+        <nav>
+            <!-- Navigation bar -->
+            <ul class="navbar">
+                <li class="navbar__link">
+                    <a href="index.html">Word Cloud Generator</a>
+                </li>
+                <li class="navbar__link">
+                    <a href="ujjwalpoudel.me">Help</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+
+    <!-- Main Starts -->
+    <main class="main container">
+        <section class="main__body-input">
+            <textarea id="input__text" placeholder="Enter text of URL"></textarea>
+        </section>
+
+        <section class="main__body-output">
+            <div class="output__website-header">
+                <h2>WebsitePopper2062</h2>
+                <hr class="line">
+                <p id="first-line">This is me</p>
+                <p id="second-line">And always will be</p>
+            </div>
+
+            <div class="output__submit" id="output__submit">
+                <button id="submit-generate">Generate Cloud</button>
+            </div>
+        </section>
+    </main>
+    <!-- Main Ends -->
+
+    <section class="word-cloud">
+        <div class="main__word-cloud container" id="main__word-cloud">
+        </div>
+    </section>
+    <!-- Footer Starts -->
+    <footer>
+        <div class="footer" id="footer">
+            <p>For more</p>
+            <p><a href="ujjwalpoudel.me">ujjwalpoudel.me</a></p>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+</body>
+
+<script type="text/javascript" src="./scripts/script.js"></script>
+</html>
