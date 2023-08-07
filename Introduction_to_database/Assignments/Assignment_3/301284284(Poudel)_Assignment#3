@@ -1,0 +1,202 @@
+--Question-1 (Drop all existing tables from your database and execute the Assigment-3.sql script.)
+DROP TABLE TESTING;
+DROP TABLE TEST1;
+DROP TABLE STUDENT;
+DROP TABLE PUBLISHER;
+DROP TABLE PROMOTION;
+DROP TABLE PERSONS2;
+DROP TABLE ORDERS;
+DROP TABLE ORDERITEMS;
+DROP TABLE NEW_DEPT;
+DROP TABLE JOB;
+DROP TABLE IDENTITY_DEMO;
+DROP TABLE HOTEL;
+DROP TABLE EMPLOYEE;
+DROP TABLE EMP11_MASTER;
+DROP TABLE EMP11;
+DROP TABLE EMP;
+DROP TABLE DEPT;
+DROP TABLE CUSTOMERS;
+DROP TABLE CUSTOMER;
+DROP TABLE CBOOK;
+DROP TABLE BOOK_CATALOG;
+DROP TABLE BOOKS;
+DROP TABLE BOOKAUTHOR;
+DROP TABLE AUTHOR;
+DROP TABLE ANOTHER_NEW_DEPT;
+DROP TABLE ACCTMANAGER;
+DROP TABLE ACCTBONUS;
+
+--Question-2(Create a list that displays the title of each magazine and the name and phone number of the
+--contact at the publisher’s office for reordering each magazine.)
+
+--Traditional Approach
+SELECT
+m.MAG_TITLE,
+p.NAME,
+P.PHONE
+FROM Magazines m, Publisher p
+WHERE m.PUBID = p.PUBID;
+
+--Using Join Keyword
+SELECT m.mag_title, p.name, p.phone
+FROM Magazines m
+JOIN Publisher p ON m.pubid = p.pubid;
+
+--Question_3(Determine which orders haven’t yet shipped and the name of the customer who placed the order.
+--Sort the results by the customer number.)
+
+--Traditional Approach
+SELECT O.SHIPDATE,
+C.FIRSTNAME,
+C.LASTNAME
+FROM ORDERS O, CUSTOMERS C
+WHERE O.CUSTOMER# = C.CUSTOMER#
+AND O.SHIPDATE IS NULL
+ORDER BY c.customer#;
+
+--Using Join Keyword
+SELECT 0.SHIPDATE, C.FIRSTNAME, C.LASTNAME
+FROM CUSTOMERS C
+LEFT JOIN ORDERS O ON O.CUSTOMER# = O.CUSTOMER#
+WHERE O.SHIPDATE IS NULL
+ORDER BY C.CUSTOMER#;
+
+
+--Question_4( Produce a list of all customers who live in the state of Florida and have ordered a magazine about
+--fitness.)
+
+--Traditional Approach
+SELECT C.FIRSTNAME, C.LASTNAME
+FROM CUSTOMERS C
+WHERE C.STATE = 'FL' AND
+C.CUSTOMER# IN (
+    SELECT O.CUSTOMER#
+    FROM ORDERS O
+    WHERE O.ORDER# IN (
+        SELECT OI.ORDER#
+        FROM ORDERITEMS OI, MAGAZINES M
+        WHERE OI.MAG_ID = M.MAG_ID
+        AND M.CATEGORY = 'FITNESS'
+        )
+);
+
+--Using Join Keyword
+SELECT C.FIRSTNAME, C.LASTNAME
+FROM CUSTOMERS C
+JOIN ORDERS O ON C.CUSTOMER# = O.CUSTOMER#
+JOIN ORDERITEMS OI ON O.ORDER# = OI.ORDER#
+JOIN MAGAZINES M ON OI.MAG_ID = M.MAG_ID
+WHERE C.STATE = 'FL' AND
+m.category = 'FITNESS';
+
+--Question_5 (Determine which magazine the customer’s first name STEVE and last name SCHELL has
+--purchased. Perform the search using the customer’s name, not the customer’s number. If he has purchased
+--multiple copies of the same magazine, unduplicated the results.)
+
+--Traditional way
+SELECT DISTINCT M.MAG_TITLE
+FROM MAGAZINES M
+WHERE M.MAG_ID IN(
+    SELECT OI.MAG_ID
+    FROM ORDERITEMS OI
+    WHERE OI.ORDER# IN (
+        SELECT O.ORDER#
+        FROM ORDERS O
+        WHERE O.CUSTOMER# IN (
+            SELECT C.CUSTOMER#
+            FROM CUSTOMERS C
+            WHERE C.FIRSTNAME = 'STEVE' AND C.LASTNAME='SCHELL'
+        )
+    )
+);
+
+--Using Join Keyword
+SELECT DISTINCT M.MAG_TITLE, OI.QUANTITY
+FROM MAGAZINES M
+JOIN ORDERITEMS OI ON M.MAG_ID = OI.MAG_ID
+JOIN ORDERS O ON oi.order# = O.ORDER#
+JOIN CUSTOMERS C ON O.CUSTOMER# = C.CUSTOMER#
+WHERE c.firstname = 'STEVE' AND c.lastname = 'SCHELL';
+
+--Question_6 (Determine the profit of each sold to STEVE SCHELL, using the actual price the customer paid
+--(not the magazines’ regular retail price). Sort the results by order date. If more than one magazine was
+--ordered, sort the results by profit amount in descending order. Perform the search using the customer
+--name, not the customer number)
+
+--Traditional Method
+SELECT O.ORDERDATE, M.MAG_TITLE, (OI.PAIDEACH - M.COST) AS PROFIT
+FROM CUSTOMERS C, ORDERS O, ORDERITEMS OI, MAGAZINES M
+WHERE C.CUSTOMER# = O.CUSTOMER#
+AND O.ORDER# = OI.ORDER#
+AND OI.MAG_ID = M.MAG_ID
+AND C.FIRSTNAME = 'STEVE' AND C.LASTNAME = 'SCHELL'
+ORDER BY O.ORDERDATE, PROFIT DESC;
+
+--Using Join Keyword
+SELECT O.ORDERDATE, M.MAG_TITLE, (OI.PAIDEACH - M.COST) AS PROFIT
+FROM CUSTOMERS C
+JOIN ORDERS O ON C.CUSTOMER# = O.CUSTOMER#
+JOIN ORDERITEMS OI ON O.ORDER# = OI.ORDER#
+JOIN MAGAZINES M ON OI.MAG_ID = M.MAG_ID
+WHERE C.FIRSTNAME = 'STEVE' AND C.LASTNAME = 'SCHELL'
+ORDER BY O.ORDERDATE, PROFIT DESC;
+
+--Question_7 (What gift will a customer who orders the magazine Shortest Poems receive? Use the actual
+--magazine retail value to determine the gift.)
+
+--Traditional Method
+SELECT C.FIRSTNAME, 
+C.LASTNAME, 
+M.MAG_TITLE, 
+P.GIFT
+FROM CUSTOMERS C,
+MAGAZINES M,
+PROMOTION P,
+ORDERS O,
+ORDERITEMS OI
+WHERE C.CUSTOMER# = O.CUSTOMER#
+AND O.ORDER# = OI.ORDER#
+AND OI.MAG_ID = M.MAG_ID
+AND M.MAG_TITLE = 'SHORTEST POEMS'
+AND M.RETAIL BETWEEN P.MINRETAIL AND P.MAXRETAIL;
+
+--Using Join Keyword
+SELECT C.FIRSTNAME, 
+C.LASTNAME, 
+M.MAG_TITLE, 
+P.GIFT
+FROM CUSTOMERS C
+JOIN ORDERS O ON C.CUSTOMER# = O.CUSTOMER#
+JOIN ORDERITEMS OI ON O.ORDER# = OI.ORDER#
+JOIN MAGAZINES M ON OI.MAG_ID = M.MAG_ID
+JOIN PROMOTION P ON M.RETAIL BETWEEN P.MINRETAIL AND P.MAXRETAIL
+WHERE M.MAG_TITLE = 'SHORTEST POEMS';
+
+--Question 9 (If a magazine has been ordered by a customer, also list the corresponding order number and the
+--state in which the customer resides.)
+
+--Traditional Method
+SELECT O.ORDER#,
+M.MAG_TITLE,
+C.FIRSTNAME, 
+C.LASTNAME, 
+C.STATE
+FROM CUSTOMERS C, 
+ORDERS O, 
+ORDERITEMS OI, 
+MAGAZINES M
+WHERE C.CUSTOMER# = O.CUSTOMER#
+AND O.ORDER# = OI.ORDER#
+AND OI.MAG_ID = M.MAG_ID;
+
+--Using Join Keyword
+SELECT O.ORDER#,
+M.MAG_TITLE,
+C.FIRSTNAME, 
+C.LASTNAME, 
+C.STATE
+FROM CUSTOMERS C
+JOIN ORDERS O ON C.CUSTOMER# = O.CUSTOMER#
+JOIN ORDERITEMS OI ON O.ORDER# = OI.ORDER#
+JOIN MAGAZINES M ON OI.MAG_ID = M.MAG_ID;
