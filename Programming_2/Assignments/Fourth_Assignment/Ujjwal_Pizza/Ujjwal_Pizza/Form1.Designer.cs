@@ -111,7 +111,7 @@
             this.panel1.Controls.Add(this.leftPreference);
             this.panel1.Controls.Add(this.leftContact);
             this.panel1.Controls.Add(this.leftName);
-            this.panel1.Location = new System.Drawing.Point(56, 63);
+            this.panel1.Location = new System.Drawing.Point(57, 63);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(519, 579);
             this.panel1.TabIndex = 0;
@@ -121,7 +121,7 @@
             // 
             this.couponSelector.AutoSize = true;
             this.couponSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.couponSelector.Location = new System.Drawing.Point(375, 446);
+            this.couponSelector.Location = new System.Drawing.Point(377, 446);
             this.couponSelector.Name = "couponSelector";
             this.couponSelector.Size = new System.Drawing.Size(18, 17);
             this.couponSelector.TabIndex = 25;
@@ -133,7 +133,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins Black", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(165, 0);
+            this.label2.Location = new System.Drawing.Point(167, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 65);
             this.label2.TabIndex = 24;
@@ -143,7 +143,7 @@
             // 
             this.leftCouponValue.Font = new System.Drawing.Font("Poppins Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftCouponValue.ForeColor = System.Drawing.Color.Fuchsia;
-            this.leftCouponValue.Location = new System.Drawing.Point(192, 436);
+            this.leftCouponValue.Location = new System.Drawing.Point(194, 436);
             this.leftCouponValue.Name = "leftCouponValue";
             this.leftCouponValue.Size = new System.Drawing.Size(160, 33);
             this.leftCouponValue.TabIndex = 23;
@@ -151,7 +151,7 @@
             // leftQuantityValue
             // 
             this.leftQuantityValue.Font = new System.Drawing.Font("Poppins Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.leftQuantityValue.Location = new System.Drawing.Point(259, 370);
+            this.leftQuantityValue.Location = new System.Drawing.Point(261, 370);
             this.leftQuantityValue.Name = "leftQuantityValue";
             this.leftQuantityValue.Size = new System.Drawing.Size(45, 48);
             this.leftQuantityValue.TabIndex = 22;
@@ -162,7 +162,7 @@
             this.leftQuantityDecrease.BackColor = System.Drawing.Color.Transparent;
             this.leftQuantityDecrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftQuantityDecrease.ForeColor = System.Drawing.Color.Fuchsia;
-            this.leftQuantityDecrease.Location = new System.Drawing.Point(323, 367);
+            this.leftQuantityDecrease.Location = new System.Drawing.Point(325, 367);
             this.leftQuantityDecrease.Name = "leftQuantityDecrease";
             this.leftQuantityDecrease.Size = new System.Drawing.Size(49, 51);
             this.leftQuantityDecrease.TabIndex = 21;
@@ -175,7 +175,7 @@
             this.leftQuantityIncrease.BackColor = System.Drawing.Color.Transparent;
             this.leftQuantityIncrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftQuantityIncrease.ForeColor = System.Drawing.Color.Fuchsia;
-            this.leftQuantityIncrease.Location = new System.Drawing.Point(192, 368);
+            this.leftQuantityIncrease.Location = new System.Drawing.Point(194, 368);
             this.leftQuantityIncrease.Name = "leftQuantityIncrease";
             this.leftQuantityIncrease.Size = new System.Drawing.Size(51, 51);
             this.leftQuantityIncrease.TabIndex = 20;
@@ -188,7 +188,7 @@
             this.leftMushroom.AutoSize = true;
             this.leftMushroom.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftMushroom.ForeColor = System.Drawing.Color.White;
-            this.leftMushroom.Location = new System.Drawing.Point(314, 326);
+            this.leftMushroom.Location = new System.Drawing.Point(316, 326);
             this.leftMushroom.Name = "leftMushroom";
             this.leftMushroom.Size = new System.Drawing.Size(133, 34);
             this.leftMushroom.TabIndex = 19;
@@ -200,7 +200,7 @@
             this.leftSausage.AutoSize = true;
             this.leftSausage.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftSausage.ForeColor = System.Drawing.Color.White;
-            this.leftSausage.Location = new System.Drawing.Point(192, 326);
+            this.leftSausage.Location = new System.Drawing.Point(194, 326);
             this.leftSausage.Name = "leftSausage";
             this.leftSausage.Size = new System.Drawing.Size(114, 34);
             this.leftSausage.TabIndex = 18;
@@ -212,7 +212,7 @@
             this.leftCheese.AutoSize = true;
             this.leftCheese.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftCheese.ForeColor = System.Drawing.Color.White;
-            this.leftCheese.Location = new System.Drawing.Point(314, 283);
+            this.leftCheese.Location = new System.Drawing.Point(316, 283);
             this.leftCheese.Name = "leftCheese";
             this.leftCheese.Size = new System.Drawing.Size(100, 34);
             this.leftCheese.TabIndex = 17;
@@ -224,7 +224,7 @@
             this.leftPepper.AutoSize = true;
             this.leftPepper.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftPepper.ForeColor = System.Drawing.Color.White;
-            this.leftPepper.Location = new System.Drawing.Point(192, 286);
+            this.leftPepper.Location = new System.Drawing.Point(194, 286);
             this.leftPepper.Name = "leftPepper";
             this.leftPepper.Size = new System.Drawing.Size(98, 34);
             this.leftPepper.TabIndex = 16;
@@ -236,7 +236,7 @@
             this.leftOlives.AutoSize = true;
             this.leftOlives.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftOlives.ForeColor = System.Drawing.Color.White;
-            this.leftOlives.Location = new System.Drawing.Point(314, 243);
+            this.leftOlives.Location = new System.Drawing.Point(316, 243);
             this.leftOlives.Name = "leftOlives";
             this.leftOlives.Size = new System.Drawing.Size(89, 34);
             this.leftOlives.TabIndex = 15;
@@ -249,7 +249,7 @@
             this.leftOnions.AutoSize = true;
             this.leftOnions.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftOnions.ForeColor = System.Drawing.Color.White;
-            this.leftOnions.Location = new System.Drawing.Point(192, 246);
+            this.leftOnions.Location = new System.Drawing.Point(194, 246);
             this.leftOnions.Name = "leftOnions";
             this.leftOnions.Size = new System.Drawing.Size(98, 34);
             this.leftOnions.TabIndex = 14;
@@ -260,7 +260,7 @@
             // 
             this.leftValueSize.Font = new System.Drawing.Font("Poppins Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftValueSize.FormattingEnabled = true;
-            this.leftValueSize.Location = new System.Drawing.Point(192, 199);
+            this.leftValueSize.Location = new System.Drawing.Point(194, 199);
             this.leftValueSize.Name = "leftValueSize";
             this.leftValueSize.Size = new System.Drawing.Size(201, 44);
             this.leftValueSize.TabIndex = 13;
@@ -270,7 +270,7 @@
             this.leftNonVeg.AutoSize = true;
             this.leftNonVeg.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftNonVeg.ForeColor = System.Drawing.Color.White;
-            this.leftNonVeg.Location = new System.Drawing.Point(288, 166);
+            this.leftNonVeg.Location = new System.Drawing.Point(290, 166);
             this.leftNonVeg.Name = "leftNonVeg";
             this.leftNonVeg.Size = new System.Drawing.Size(115, 34);
             this.leftNonVeg.TabIndex = 12;
@@ -284,7 +284,7 @@
             this.leftVeg.AutoSize = true;
             this.leftVeg.Font = new System.Drawing.Font("Poppins Black", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.leftVeg.ForeColor = System.Drawing.Color.White;
-            this.leftVeg.Location = new System.Drawing.Point(197, 165);
+            this.leftVeg.Location = new System.Drawing.Point(199, 165);
             this.leftVeg.Name = "leftVeg";
             this.leftVeg.Size = new System.Drawing.Size(69, 34);
             this.leftVeg.TabIndex = 11;
@@ -669,6 +669,7 @@
             this.label10.Size = new System.Drawing.Size(137, 40);
             this.label10.TabIndex = 25;
             this.label10.Text = "Full Name";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // left_panel
             // 
