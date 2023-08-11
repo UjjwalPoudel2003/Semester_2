@@ -514,5 +514,10 @@ namespace Ujjwal_Pizza
             this.rightTax.Text = salesTax.ToString();
             this.rightTotal.Text = finalPrice.ToString();
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
