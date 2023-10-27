@@ -1,4 +1,4 @@
-# Here are the pages of each projects that are here.
+# Projects web links :)
 1. Multiplicator Table
    
 https://ujjwalpoudel2003.github.io/Semester_2/Client_side_web_development/Assignments/first_assignment/assignment1.html
